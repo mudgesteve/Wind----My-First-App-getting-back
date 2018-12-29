@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wind.Pages.TestingPage">
+    <StackLayout Spacing="10" Padding="5" Orientation="Vertical" x:Name="outerStack">
+        <ScrollView>
+            <StackLayout Spacing="5" HorizontalOptions="FillAndExpand" WidthRequest="1000">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Name: " WidthRequest="75" HorizontalOptions="Start" />
+                    <Entry Text="crossplatform.jpg" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Date: " WidthRequest="75" HorizontalOptions="Start" />
+                    <Entry Text="07/05/2017" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Tags:" WidthRequest="75" HorizontalOptions="Start" />
+                    <Entry Text="Marin, workstations" HorizontalOptions="FillAndExpand" />
+                </StackLayout>                                                                                                                                     
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Save" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        <Image VerticalOptions="Start" Aspect="AspectFit" Source="https://i-msdn.sec.s-msft.com/dynimg/IC853364.png" />
+    </StackLayout>
+
+</ContentPage>

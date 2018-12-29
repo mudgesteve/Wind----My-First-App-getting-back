@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wind.Pages.WorldPage">
+ 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{StaticResource RefreshNewsCommand}" CommandParameter="World" Text="Refresh" Priority="0" Order="Primary" Icon="icon_refresh.png"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        
+        <ListView ItemTapped="OnItemTapped" IsRefreshing="{Binding IsBusy}" SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding WorldNews}" Margin="10">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.RowSpan="3" VerticalOptions="Start"  WidthRequest="80"  HeightRequest="80" 
+                               Source="{Binding ImageUrl}" Aspect="Fill" />
+                        <Label Style="{DynamicResource ListTitleStyle}" Grid.Column="1" Grid.Row="0" 
+                               Text="{Binding Title}"/>
+                        <Label Style="{DynamicResource ListDescriptionStyle}" Grid.Column="1" Grid.Row="1" 
+                               Text="{Binding Description}"/>
+                        <Label VerticalOptions="Start" Margin="0,5" FontSize="Micro" Grid.Column="1" Grid.Row="2" 
+                               Text="{Binding CreatedDate, Converter={StaticResource AgoLabelConverter}" />
+                         
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+    <ActivityIndicator IsVisible="{Binding IsBusy}" WidthRequest="100" IsEnabled="{Binding IsBusy}" IsRunning="{Binding IsBusy}">
+        <ActivityIndicator.IsVisible>
+            <OnPlatform x:TypeArguments="x:Boolean">
+                <OnPlatform.iOS>false</OnPlatform.iOS>
+                <OnPlatform.Android>false</OnPlatform.Android>
+            </OnPlatform>
+        </ActivityIndicator.IsVisible>
+    </ActivityIndicator>
+
+    </Grid>
+
+</ContentPage>

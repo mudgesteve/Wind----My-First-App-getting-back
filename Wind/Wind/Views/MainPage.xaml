@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:local="clr-namespace:Wind" 
+            xmlns:pages="clr-namespace:Wind.Pages" 
+            xmlns:views="clr-namespace:Wind.Views"
+            NavigationPage.HasNavigationBar="False" 
+            x:Class="Wind.Views.MainPage">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="2" Clicked="MyButton_Click" />
+    </TabbedPage.ToolbarItems>
+
+    <TabbedPage.Children>
+        <pages:HomePage Title="Home Page" />
+        <pages:Drivers Title="Drivers" />
+        <pages:TestingPage Title="PlayGround" />
+    </TabbedPage.Children>
+
+</TabbedPage>

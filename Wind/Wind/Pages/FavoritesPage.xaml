@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Wind.Pages.FavoritesPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{StaticResource RefreshNewsCommand}" CommandParameter="Favorites" Text="Refresh" Priority="0" Order="Primary" Icon="icon_refresh.png"/>
+    </ContentPage.ToolbarItems>
+
+    <ListView ItemTapped="OnItemTapped" IsRefreshing="{Binding IsBusy}" SeparatorVisibility="None" x:Name="favoritesListView" HasUnevenRows="True" ItemsSource="{Binding Favorites}" Margin="10">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+                        <Image Grid.RowSpan="3" VerticalOptions="Start"  WidthRequest="80"  HeightRequest="80" Source="{Binding ImageUrl}" Aspect="Fill" />
+
+                        <Label FontAttributes="{Binding Description, Converter={StaticResource LabelFontWeightConverter}}" Style="{DynamicResource ListTitleStyle}" Grid.Column="1" Grid.Row="0" Text="{Binding Title}"/>
+                        <Label FontAttributes="{Binding Description, Converter={StaticResource LabelFontWeightConverter}}" Style="{DynamicResource ListDescriptionStyle}" Grid.Column="1" Grid.Row="1" Text="{Binding Description}"/>
+
+                        <Label VerticalOptions="Start" FontSize="Micro" Grid.Column="1" Grid.Row="2" Text="{Binding ArticleDate, Converter={StaticResource AgoLabelConverter}">
+                            <Label.Margin>
+                                <OnPlatform x:TypeArguments="Thickness" Android="0" iOS="0,-10,0,10" WinPhone="0" />
+                            </Label.Margin>
+                        </Label>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>
+
+
+ 

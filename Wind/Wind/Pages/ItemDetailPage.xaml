@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Title="Full Article"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:Wind" 
+             x:Class="Wind.Pages.ItemDetailPage">
+ 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Command="{StaticResource ToggleFavoriteCommand}" CommandParameter="{Binding}" Text="Add to Favorites" Icon="icon_favorites.png" Order="Secondary" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView Margin="40">
+    
+    <StackLayout>
+
+        <Image HorizontalOptions="Start" WidthRequest="100" HeightRequest="100" VerticalOptions="Center" 
+                               Source="{Binding ImageUrl}" Aspect="AspectFit" />
+        <Label Style="{DynamicResource ListTitleStyle}"  
+                               Text="{Binding Title}"/>
+        <Label Style="{DynamicResource ListDescriptionStyle}"  
+                               Text="{Binding Description}"/>
+        <Label VerticalOptions="Start" Margin="0,5" FontSize="Micro"  
+                               Text="{Binding CreatedDate, StringFormat='UPDATED: {0:dddd h:mm tt} GMT'}" />
+
+        <Button Text="Read Article" Command="{StaticResource SpeakCommand}" CommandParameter="{Binding Title}"/>
+
+           <Label HorizontalOptions="Center" VerticalOptions="Start" Text="View Article">
+                <Label.Effects>
+                    <local:HyperlinkEffect/>
+                </Label.Effects>
+            </Label>
+        
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>

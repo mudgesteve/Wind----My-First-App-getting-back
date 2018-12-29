@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Title="Settings"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:Wind;assembly=Wind"
+             x:Class="Wind.Pages.SettingsPage">
+
+    <ScrollView Margin="40">
+
+        <StackLayout>
+            
+            <Label Style="{x:DynamicResource TitleStyle}" Text="Adjust your app settings and preferences as needed."/>
+            <Label Style="{x:DynamicResource SubtitleStyle}" Text="Maximum articles to display:"/>
+            <Slider x:Name="articleCountSlider" Minimum="0" Maximum="20"/>
+            <Label Style="{x:DynamicResource SubtitleStyle}" Text="Enter your display name:"/>
+            <Entry Text="{Binding DisplayName, Mode=TwoWay}" />
+            <Image x:Name="profileImage" HeightRequest="100" Source="{Binding ProfileImageUrl}" Aspect="AspectFill" />
+            <Editor Text="{Binding BioContent}" HeightRequest="160" />
+            <Label Style="{x:DynamicResource SubtitleStyle}" Text="Current operating system:"/>
+            <Label FontAttributes="Bold" Style="{x:DynamicResource SubtitleStyle}" Text="{Binding ExtendedPlatformLabel}"/>
+            
+            <Label Style="{x:DynamicResource SubtitleStyle}" Text="Device orientation:"/>
+            <Label FontAttributes="Bold" Style="{x:DynamicResource SubtitleStyle}" Text="{Binding CurrentOrientation}"/>
+            
+            <Label Style="{x:DynamicResource SubtitleStyle}" Text="Select a default news category:"/>
+            <Picker TextColor="{DynamicResource ListTextColor}" x:Name="categoryPicker">
+                <Picker.Items>
+                    <x:String>Business</x:String>
+                    <x:String>Science and Technology</x:String>
+                    <x:String>Health</x:String>
+                    <x:String>Politics</x:String>
+                    <x:String>Entertainment</x:String>
+                    <x:String>Sports</x:String>
+                    <x:String>World</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button Clicked="Button_Clicked" Text="Save" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

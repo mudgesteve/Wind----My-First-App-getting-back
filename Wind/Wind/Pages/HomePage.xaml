@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" BackgroundColor="#1E4F1E" NavigationPage.HasNavigationBar="False"
+             x:Class="Wind.Pages.HomePage">
+    <StackLayout VerticalOptions="CenterAndExpand">
+        <!-- Place new controls here is where it all begins-->
+        <StackLayout>
+            <ImageButton Source="homescreenimage" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#1E4F1E" Margin="10" />
+        </StackLayout>
+        <StackLayout Margin="20,0,20,20">
+            <Button Image="golfbagseventytwo.png" Text="Manage Your Bag" BackgroundColor="#00FF5A" BorderColor="#007F2D" Padding="10" BorderRadius="30" BorderWidth="10" MinimumWidthRequest="150" Clicked="ManageYourBag_Click" />
+            <Button Image="playgolficon_ico.png" Text="Play Golf" BackgroundColor="#00FF5A" BorderColor="#007F2D" Padding="10" BorderRadius="30" BorderWidth="10" Clicked="PlayGolf_Click" />
+        </StackLayout>
+        <StackLayout BackgroundColor="#00BF44" HorizontalOptions="Center">
+            <ImageButton Source="bottompic" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="#004017" BorderColor="#007F2D" BorderWidth="5" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
